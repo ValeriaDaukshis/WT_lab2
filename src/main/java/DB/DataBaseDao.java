@@ -1,4 +1,4 @@
-package DAO;
+package DB;
 
 import org.apache.log4j.Logger;
 
@@ -11,12 +11,12 @@ import java.util.Properties;
 
 public class DataBaseDao {
     private static final Logger log = Logger.getLogger(DataBaseDao.class);
-    private String url;
-    private String username;
-    private String password;
-    private Connection db;
+    private static String url;
+    private static String username;
+    private static String password;
+    private static Connection db;
 
-    public Connection connect() {
+    public static Connection connect() {
         db = null;
         ReadProperties();
 
@@ -40,7 +40,7 @@ public class DataBaseDao {
         }
     }
 
-    private void ReadProperties(){
+    private static void ReadProperties(){
         Properties props = new Properties();
         try{
             FileInputStream in = new FileInputStream("./src/main/resources/database.properties");
