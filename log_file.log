@@ -1,0 +1,7 @@
+2019-12-12 15:39:21 ERROR XmlDeserializer:23 - Exception: schema_reference.4: Failed to read schema document 'file:/C:/src/main/resources/books.xsd', because 1) could not find the document; 2) the document could not be read; 3) the root element of the document is not <xsd:schema>.
+2019-12-12 16:42:46 ERROR DataBaseDao:24 - Connection with db failedjava.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+2019-12-12 16:47:59 ERROR DataBaseDao:24 - Connection with db failedjava.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver
+2019-12-12 16:49:18 ERROR DataBaseDao:24 - Connection with db failedjava.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+2019-12-12 23:51:46 ERROR DataBaseDao:24 - Connection with db failedjava.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+2019-12-12 23:54:17 ERROR DataBaseDao:24 - Connection with db failedjava.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+2019-12-13 00:02:17 ERROR DataBaseDao:26 - Connection with db failed: java.lang.ClassNotFoundException: com.mysql.jdbc.Driver

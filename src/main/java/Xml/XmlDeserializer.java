@@ -25,11 +25,6 @@ import org.xml.sax.SAXException;
 public class XmlDeserializer implements IDeserializer {
 
     private static final Logger log = Logger.getLogger(XmlDeserializer.class);
-    private int Id;
-    private String name;
-    private String author;
-    private int pages;
-    private int price;
 
     public boolean validateXml(String xmlPath, String xsdPath) {
         try {
@@ -66,12 +61,12 @@ public class XmlDeserializer implements IDeserializer {
 
                     Element eElement = (Element) nNode;
 
-                    this.Id = Integer.parseInt(eElement.getAttribute("id"));
-                    this.name = eElement.getElementsByTagName("name").item(0).getTextContent();
-                    this.author = eElement.getElementsByTagName("author").item(0).getTextContent();
-                    this.pages = Integer.parseInt(eElement.getElementsByTagName("pages").item(0).getTextContent());
-                    this.price = Integer.parseInt(eElement.getElementsByTagName("price").item(0).getTextContent());
-                    bookList.add(new Book(this.Id, this.name, this.author, this.pages, this.price));
+                    int id = Integer.parseInt(eElement.getAttribute("id"));
+                    String name = eElement.getElementsByTagName("name").item(0).getTextContent();
+                    String author = eElement.getElementsByTagName("author").item(0).getTextContent();
+                    int pages = Integer.parseInt(eElement.getElementsByTagName("pages").item(0).getTextContent());
+                    int price = Integer.parseInt(eElement.getElementsByTagName("price").item(0).getTextContent());
+                    bookList.add(new Book(id, name, author, pages, price));
                 }
             }
         } catch (Exception e) {

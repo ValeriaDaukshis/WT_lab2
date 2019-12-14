@@ -17,9 +17,14 @@ public class DBController {
     private Connection connection = DataBaseDao.connect();
     private static final Logger log = Logger.getLogger(DBController.class);
 
-    public DBController(BookPrinter printer) throws SQLException {
-        this.statement = this.connection.createStatement();
-        this.printer = printer;
+    public DBController(BookPrinter printer) {
+        try{
+            this.statement = this.connection.createStatement();
+            this.printer = printer;
+        } catch (SQLException ex){
+            log.error(ex.getMessage());
+        }
+
     }
 
     public void Insert(int id, String name, String author, int pages, double price){
@@ -39,6 +44,24 @@ public class DBController {
             } catch (SQLException ex) {
                 log.warn("Error in database inserting: " + ex);
             }
+        }
+    }
+
+    public void Delete(int id){
+        try {
+            String str = "DELETE FROM books WHERE id=" + id + ";";
+            this.statement.execute(str);
+        } catch (SQLException ex) {
+            log.warn("Error in database inserting: " + ex);
+        }
+    }
+
+    public void Delete(String name){
+        try {
+            String str = "DELETE FROM books WHERE name='" + name+"';";
+            this.statement.execute(str);
+        } catch (SQLException ex) {
+            log.warn("Error in database inserting: " + ex);
         }
     }
 

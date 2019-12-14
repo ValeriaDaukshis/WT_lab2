@@ -20,16 +20,17 @@ public class Main {
             ArrayList<Book> list = xmlDeserializer.readXmlFile(resourceDirectory+"books.xml");
             DataBaseDao dataBaseDao = new DataBaseDao();
             dataBaseDao.connect();
-            DBController controller = null;
-            try{
-                controller = new DBController(new BookPrinter());
-                controller.ShowDB();
-                System.out.println("********");
 
-            }catch (SQLException ex){
+            DBController controller = new DBController(new BookPrinter());
+            controller.ShowDB();
+            System.out.println("********");
 
-            }
             controller.Insert(list);
+            controller.ShowDB();
+            System.out.println("********");
+            controller.Delete("The Lord of the Rings");
+            controller.Delete(2);
+            controller.Delete(3);
             controller.ShowDB();
             dataBaseDao.close();
         }
